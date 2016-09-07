@@ -1,0 +1,39 @@
+<head>
+    <title>Snake and Ladders</title>
+</head>
+<body>
+    <h1>Snake and Ladders</h1>
+    {{> leaderboard}}
+</body>
+
+<template name="leaderboard">
+    <table width=40%>
+    	<tr>
+    		<th>Turn</th>
+    		<th>Name</th>
+    		<th>Score (0-100)</th>
+    	</tr>
+    	{{#each player}}
+    	<tr style="text-align:center;">
+    		<td></td>
+    		<td class="player {{selectedClass}}">{{name}}</td>
+    		<td>{{score}}</td>
+    	</tr>
+    	{{/each}}
+    </table>
+    {{#if numOfPlayers}}
+    	<button class="increment">Roll</button>
+    {{/if}}
+    {{#if numOfPlayers2}}
+    	<form>
+        	<input type="text" name="playerName">
+        	<input type="submit" value="Add Player">
+    	</form>
+    {{/if}}
+    {{#if numOfPlayers3}}
+    	<button class="remove">Remove Player</button>
+    {{/if}}
+    {{#if gameOver}}
+        <button class="gameover">Restart</button>
+    {{/if}}
+</template>
